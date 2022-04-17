@@ -19,6 +19,7 @@ public sealed class ApplicationViewModel : INotifyPropertyChanged
 {
     private readonly IShipYard _shipYard;
     private readonly IMeteo _meteo = new Meteo();
+    public ShipYardVm ShipYardVm { get; } = new ();
     public IShipDispatcher ShipDispatcher { get; }
     private IShip? _selectedShip;
     private EWeatherType? _weatherType;
@@ -70,7 +71,7 @@ public sealed class ApplicationViewModel : INotifyPropertyChanged
     
     public ApplicationViewModel()
     {
-        _shipYard = new ShipYard(ELoadType.Gas).AddNext(new ShipYard(ELoadType.Oil)).AddNext(new ShipYard(ELoadType.Water));
+        _shipYard = ShipYardVm.GetChain();
         ShipDispatcher = new ShipDispatcher(new ShipFactory(), _meteo.WeatherNotifier, _shipYard);
         ShipDispatcher.CreateShip("ship 1", true, ELoadType.Gas);
         ShipDispatcher.CreateShip("ship 2", false, ELoadType.Water);

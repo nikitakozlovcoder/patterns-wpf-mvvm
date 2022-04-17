@@ -4,16 +4,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Lab4"
         xmlns:viewModels="clr-namespace:Lab4.ViewModels"
         xmlns:System="clr-namespace:System;assembly=System.Runtime"
         xmlns:constants="clr-namespace:Lab4.Core.Constants"
+        xmlns:converters="clr-namespace:Lab4.Lib.Converters"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
         <viewModels:ApplicationViewModel />
     </Window.DataContext>
     <Window.Resources>
+        <converters:IsNullConverter x:Key="IsNullConverter"/>
         <ObjectDataProvider x:Key="LoadTypeValues" MethodName="GetValues"
                             ObjectType="{x:Type System:Enum}">
             <ObjectDataProvider.MethodParameters>
@@ -23,7 +24,6 @@
     </Window.Resources>
     <ScrollViewer>
     <StackPanel>
-        
         <StackPanel Orientation="Horizontal">
             <StackPanel HorizontalAlignment="Left"  Margin="5 5 5 25">
                 <TextBlock Margin="0 5 0 5" Text="Name"/>
@@ -55,8 +55,74 @@
                 </TextBlock>
             </StackPanel>
         </StackPanel>
-        
-        <Grid Margin=" 0 0 0 20">
+        <Grid Height="100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border Margin=" 5 0  5 0 " CornerRadius="6" BorderBrush="Gray" Background="White" BorderThickness="2" DockPanel.Dock="Top">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock>Gas ship yard</TextBlock>
+                <Grid>
+                <TextBlock FontSize="16">
+                    Free
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ShipYardVm.GasShipYard.CurrentShip, Converter={StaticResource IsNullConverter}}" Value="False">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock Text="{Binding ShipYardVm.GasShipYard.CurrentShip.Name}"/>
+                </Grid>
+            </StackPanel>
+            </Border>
+            <Border Grid.Column="1" Margin=" 5 0  5 0 " CornerRadius="6" BorderBrush="Gray" Background="White" BorderThickness="2" DockPanel.Dock="Top">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock>Water ship yard</TextBlock>
+                <Grid>
+                <TextBlock FontSize="16">
+                    Free
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ShipYardVm.WaterShipYard.CurrentShip, Converter={StaticResource IsNullConverter}}" Value="False">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock Text="{Binding ShipYardVm.WaterShipYard.CurrentShip.Name}"/>
+                </Grid>
+            </StackPanel>
+            </Border>
+            <Border Grid.Column="2" Margin=" 5 0  5 0 " CornerRadius="6" BorderBrush="Gray" Background="White" BorderThickness="2" DockPanel.Dock="Top">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock>Oil ship yard</TextBlock>
+                <Grid>
+                <TextBlock FontSize="16">
+                    Free
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ShipYardVm.OilShipYard.CurrentShip, Converter={StaticResource IsNullConverter}}" Value="False">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock Text="{Binding ShipYardVm.OilShipYard.CurrentShip.Name}"/>
+                </Grid>
+            </StackPanel>
+            </Border>
+        </Grid>
+        <Grid Margin=" 0 25 0 20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="0.8*" />
@@ -81,8 +147,7 @@
                 <TextBlock Margin="0 15 0 0" Text="{Binding SelectedShip.Status }"/>
                 <Button Margin="0 15 0 0" Content="Change state" Height="30" Width="250" Command="{Binding ChangeShipState}" />
             </StackPanel>
-          
-            </Grid>
+        </Grid>
     </StackPanel>
     </ScrollViewer>
 </Window>

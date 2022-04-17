@@ -4,7 +4,7 @@ namespace Lab4.Core.ShipYard;
 
 public interface IShipYard
 {
-    IShip? CurrentShip { get; set; }
+    IShip? CurrentShip { get; }
     bool ProcessShip(IShip ship);
     IShipYard AddNext(IShipYard shipYard);
     bool CheckCanProcessShip(IShip ship);
