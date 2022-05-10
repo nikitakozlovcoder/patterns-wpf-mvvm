@@ -56,7 +56,8 @@ public class Ship : IShip, INotifyPropertyChanged
     }
 
     public string Status => State.Status();
-    
+    public bool CanBeDeleted => State.CanShipBeDeleted;
+
     public Ship()
     {
         State = new RaidState(this);

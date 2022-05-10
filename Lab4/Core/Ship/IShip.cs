@@ -10,5 +10,5 @@ public interface IShip
     bool IsLoaded { get; set; }
     ELoadType ELoadType { get; set; }
     public string Status { get; }
-
+    bool CanBeDeleted { get; }
 }

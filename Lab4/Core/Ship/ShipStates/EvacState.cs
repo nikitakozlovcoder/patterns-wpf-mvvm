@@ -29,4 +29,5 @@ public class EvacState : BaseShipState, IShipState
     }
 
     public string Status() => ShipStatus.EvacuationBadWeather;
+    public bool CanShipBeDeleted => true;
 }

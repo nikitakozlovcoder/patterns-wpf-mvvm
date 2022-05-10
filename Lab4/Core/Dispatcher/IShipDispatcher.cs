@@ -13,4 +13,5 @@ public interface IShipDispatcher
     public ObservableCollection<IShip> Ships { get; }
     IShip CreateShip(string name, bool isLoaded, ELoadType eLoadType);
     void ChangeShipState(IShip ship, IShipYard shipYard);
+    void DeleteShip(IShip selectedShip);
 }

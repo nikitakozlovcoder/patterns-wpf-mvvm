@@ -69,6 +69,16 @@ public sealed class ApplicationViewModel : INotifyPropertyChanged
             ShipDispatcher.ChangeShipState(_selectedShip, _shipYard);
         }, _ => _weatherType == EWeatherType.Good && _selectedShip != null && _shipYard.CheckCanProcessShip(_selectedShip));
     
+    public BasicCommand DeleteShip => new(
+        _ =>
+        {
+            if (_selectedShip == null)
+            {
+                return;
+            }
+            ShipDispatcher.DeleteShip(_selectedShip);
+        }, _ => _selectedShip != null && _selectedShip.CanBeDeleted);
+    
     public ApplicationViewModel()
     {
         _shipYard = ShipYardVm.GetChain();

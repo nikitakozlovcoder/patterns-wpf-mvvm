@@ -9,4 +9,5 @@ public interface IShipState
     void DoWork(IShipYard shipYard);
     void OnAlert(EWeatherType eWeatherType, IShipYard shipYard);
     string Status();
+    bool CanShipBeDeleted { get; }
 }

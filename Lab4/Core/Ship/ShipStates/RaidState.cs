@@ -29,4 +29,6 @@ public class RaidState : BaseShipState, IShipState
     }
 
     public string Status() => ShipStatus.InRaid;
+    public bool CanShipBeDeleted => true;
+    
 }

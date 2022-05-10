@@ -1,11 +1,11 @@
 ﻿<Window x:Class="Lab4.Presentation.MainWindow"
-        FontSize="18"
+        FontSize="22"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:Lab4.ViewModels"
-        xmlns:System="clr-namespace:System;assembly=System.Runtime"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
         xmlns:constants="clr-namespace:Lab4.Core.Constants"
         xmlns:converters="clr-namespace:Lab4.Lib.Converters"
         mc:Ignorable="d"
@@ -16,7 +16,7 @@
     <Window.Resources>
         <converters:IsNullConverter x:Key="IsNullConverter"/>
         <ObjectDataProvider x:Key="LoadTypeValues" MethodName="GetValues"
-                            ObjectType="{x:Type System:Enum}">
+                            ObjectType="{x:Type system:Enum}">
             <ObjectDataProvider.MethodParameters>
                 <x:Type TypeName="constants:ELoadType"/>
             </ObjectDataProvider.MethodParameters>
@@ -34,11 +34,11 @@
                 </StackPanel>
                 <ComboBox  ItemsSource="{Binding Source={StaticResource LoadTypeValues}}"
                            SelectedItem="{Binding Path=NewShipRequest.ELoadType, Mode=TwoWay}"/>
-                <Button Margin="0 15 0 0" Content="Add ship" Height="30" Width="250" Command="{Binding AddShipCommand}"  />
+                <Button Margin="0 15 0 0" Content="Add ship" Height="40" Width="250" Command="{Binding AddShipCommand}"  />
             </StackPanel>
             <StackPanel Margin="40 40 0 0">
-                <Button Content="Notify weather changed" Height="30" Width="250" Command="{Binding NotifyChangeWeather}" />
-                <TextBlock FontSize="22" Foreground="Red">
+                <Button Content="Notify weather changed" Height="40" Width="250" Command="{Binding NotifyChangeWeather}" />
+                <TextBlock FontSize="26" Foreground="Red" FontWeight="Bold" Margin="0 8 0 0">
                     Bad weather alert
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
@@ -65,7 +65,7 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock>Gas ship yard</TextBlock>
                 <Grid>
-                <TextBlock FontSize="16">
+                <TextBlock FontSize="20">
                     Free
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
@@ -85,7 +85,7 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock>Water ship yard</TextBlock>
                 <Grid>
-                <TextBlock FontSize="16">
+                <TextBlock FontSize="20">
                     Free
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
@@ -105,7 +105,7 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock>Oil ship yard</TextBlock>
                 <Grid>
-                <TextBlock FontSize="16">
+                <TextBlock FontSize="20">
                     Free
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
@@ -139,13 +139,14 @@
             </ListBox>
             <StackPanel HorizontalAlignment="Left" Grid.Column="1" Margin="25 0 0 0">
                 <TextBlock Text="Name" />
-                <TextBlock Text="{Binding SelectedShip.Name, FallbackValue=---}" />
+                <TextBlock FontWeight="Bold" Text="{Binding SelectedShip.Name, FallbackValue=---}" />
                 <TextBlock Margin="0 15 0 0"  Text="Is loaded" />
-                <TextBlock Text="{Binding SelectedShip.IsLoaded, FallbackValue=---}" />
+                <TextBlock FontWeight="Bold" Text="{Binding SelectedShip.IsLoaded, FallbackValue=---}" />
                 <TextBlock Margin="0 15 0 0"  Text="Load type" />
-                <TextBlock Text="{Binding SelectedShip.ELoadType, FallbackValue=---}" />
-                <TextBlock Margin="0 15 0 0" Text="{Binding SelectedShip.Status }"/>
-                <Button Margin="0 15 0 0" Content="Change state" Height="30" Width="250" Command="{Binding ChangeShipState}" />
+                <TextBlock FontWeight="Bold" Text="{Binding SelectedShip.ELoadType, FallbackValue=---}" />
+                <TextBlock FontWeight="Bold" Margin="0 15 0 0" Text="{Binding SelectedShip.Status }"/>
+                <Button Margin="0 15 0 0" Content="Change state" Height="45" Width="250" Command="{Binding ChangeShipState}" />
+                <Button Margin="0 15 0 0" Content="Delete ship" Height="45" Width="250" Command="{Binding DeleteShip}" />
             </StackPanel>
         </Grid>
     </StackPanel>

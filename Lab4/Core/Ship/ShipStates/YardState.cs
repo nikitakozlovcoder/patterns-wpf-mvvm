@@ -32,4 +32,5 @@ public class YardState : BaseShipState, IShipState
     }
 
     public string Status() => ShipStatus.OnYard;
+    public bool CanShipBeDeleted => false;
 }

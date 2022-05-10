@@ -37,4 +37,9 @@ public class ShipDispatcher : IShipDispatcher
     {
         ship.State.ChangeState(shipYard);
     }
+
+    public void DeleteShip(IShip selectedShip)
+    {
+        Ships.Remove(selectedShip);
+    }
 }
