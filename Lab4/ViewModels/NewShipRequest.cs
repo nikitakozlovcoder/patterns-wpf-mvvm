@@ -5,7 +5,7 @@ using Lab4.Core.Constants;
 
 namespace Lab4.ViewModels;
 
-public class NewShipRequest : INotifyPropertyChanged
+public sealed class NewShipRequest : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
     private string _name = "";
@@ -42,7 +42,7 @@ public class NewShipRequest : INotifyPropertyChanged
     } 
 
     [NotifyPropertyChangedInvocator]
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }

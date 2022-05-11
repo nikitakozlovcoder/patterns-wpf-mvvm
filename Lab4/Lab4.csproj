@@ -7,4 +7,13 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Presentation\Static" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Presentation\Static\logo.jpg" />
+      <Resource Include="Presentation\Static\logo.jpg" />
+    </ItemGroup>
+
 </Project>

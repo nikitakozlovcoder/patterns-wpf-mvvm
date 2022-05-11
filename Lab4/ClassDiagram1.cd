@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Lab4.Lib.Command.BasicCommand">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lib\Command\BasicCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="Lab4.Lib.Observable.BehaviourSubject&lt;T&gt;">
+    <Position X="11.5" Y="6.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAEACAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Lib\Observable\BehaviourSubject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab4.Core.ShipYard.ShipYard">
+    <Position X="3.75" Y="11.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>IAGAAAAABIAQAAAAIAAAAAAAgAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Core\ShipYard\ShipYard.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_currentShip" />
+      <Field Name="_next" />
+      <Property Name="CurrentShip" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab4.Core.Ship.Ship">
+    <Position X="5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAABIAAGAAAAAAAIIAAACAQAgCAAAAAAEAAABAAAAAA=</HashCode>
+      <FileName>Core\Ship\Ship.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab4.Core.Ship.ShipStates.BaseShipState">
+    <Position X="11.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Ship\ShipStates\BaseShipState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Ship" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Lab4.Core.Ship.ShipStates.EvacState" Collapsed="true">
+    <Position X="9" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAEAAUABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Ship\ShipStates\EvacState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab4.Core.Ship.ShipStates.RaidState" Collapsed="true">
+    <Position X="11.5" Y="13.25" Width="1.5" />
+    <InheritanceLine Type="Lab4.Core.Ship.ShipStates.BaseShipState" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="12.046" />
+        <Point X="12.5" Y="13.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAACAEAAUABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Ship\ShipStates\RaidState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab4.Core.Ship.ShipStates.YardState" Collapsed="true">
+    <Position X="13.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAEAAUABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Ship\ShipStates\YardState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab4.Core.Ship.ShipFactory.BaseShipFactory">
+    <Position X="17.25" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Ship\ShipFactory\BaseShipFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab4.Core.Ship.ShipFactory.ShipFactory">
+    <Position X="17" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Ship\ShipFactory\ShipShipFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab4.Core.Meteo.Meteo">
+    <Position X="8.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAABAAAgAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Core\Meteo\Meteo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_weatherNotifier" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab4.Core.Dispatcher.ShipDispatcher">
+    <Position X="14.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgACAAAAAAAEAABAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Dispatcher\ShipDispatcher.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_shipFactory" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Lab4.Core.Ship.IShip">
+    <Position X="8.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAGAAAAAAAIAAAAAAQAACAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Core\Ship\IShip.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Lab4.Core.ShipYard.IShipYard">
+    <Position X="5.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGAAAAABIAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\ShipYard\IShipYard.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
